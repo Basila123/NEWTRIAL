@@ -5,7 +5,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class InvoiceGeneratorTest {
+import java.util.ArrayList;
+import java.util.List;
+
+public class InvoiceServiceTest {
     InvoiceGenerator iG;
 
     @Before
@@ -41,6 +44,19 @@ public class InvoiceGeneratorTest {
         };
         InvoiceSummary invoiceSummary = iG.invoiceSummaryCalculation(rides);
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(3,71);
+        Assert.assertEquals(expectedInvoiceSummary,invoiceSummary);
+    }
+
+    @Test
+    public void givenUserIdWhenAddedShouldReturnInvoice(){
+        Ride[] rides = {
+                new Ride(2.0,5,"1"),
+                new Ride(3.0,5,"1"),
+                new Ride(3.0,5,"2"),
+                new Ride(1.0,1,"3")
+        };
+        InvoiceSummary invoiceSummary = iG.invoice(rides,"1");
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary("1",60);
         Assert.assertEquals(expectedInvoiceSummary,invoiceSummary);
     }
 }
