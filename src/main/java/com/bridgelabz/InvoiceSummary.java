@@ -4,11 +4,12 @@ import java.util.Objects;
 
 import java.util.Objects;
 
+import java.util.Objects;
+
 public class InvoiceSummary {
     int numOfRides;
     double totalFare;
     Object average;
-    String userId;
 
     public InvoiceSummary(int numOfRides, double totalFare){
         this.numOfRides = numOfRides;
@@ -16,8 +17,7 @@ public class InvoiceSummary {
         this.average = this.totalFare/this.numOfRides;
     }
 
-    public InvoiceSummary(String userId, double totalFare){
-        this.userId = userId;
+    public InvoiceSummary(double totalFare){
         this.totalFare = totalFare;
     }
 
